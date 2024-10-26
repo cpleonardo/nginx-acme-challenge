@@ -1,0 +1,19 @@
+services:
+
+  nginx:
+    build:
+      context: .
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt  # For Let's Encrypt SSL certs
+      - ./certbot/www:/var/www/certbot    # For Certbot validation
+    ports:
+      - "80:80"
+  
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'certbot certonly --webroot -w /var/www/certbot -d subdomain.example.com --agree-tos -m email@example.com --no-eff-email'"
+    depends_on:
+      - nginx
