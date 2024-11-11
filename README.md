@@ -1,8 +1,8 @@
 ## Nginx ACME Challenge
 
-Basic Nginx and certbot configuration for ACME Challenge validation in order to proof a domain ownership in a VPS instance (EC2, Droplet, VM, etc.).
+Basic Nginx and certbot configuration for ACME Challenge validation in order to proof a domain ownership in a VPS instance (AWS-EC2, DO-Droplet, Azure-VM, etc.).
 
-Replace `subdomain.example.com` and `email@example.com` by your own domain and email address in `docker-compose.yml` file.
+Replace `subdomain.example.com` and `email@example.com` by your own domain and email address in the `docker-compose.yml` file.
 
 If validation success, certificates will be created inside a new directory named `certbot`, these cerificates can be used in upcomming Nginx server configurations with TLS encrytion enabled (https).
 
